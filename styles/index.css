@@ -1,0 +1,180 @@
+html, body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    margin-top: 60px;
+    margin-bottom: 60px;
+    background-color: #000000;
+    color: #F5F5F5;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+.navbar {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background-color: #000000;
+    height: 60px;
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid #262626;
+}
+
+.container {
+    width: 95%;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-weight: bold;
+    font-size: 1.6rem;
+    font-family: 'Cursive', sans-serif;
+}
+
+.nav-links {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    gap: 20px;
+}
+
+.nav-links i {
+    font-size: 1.4rem;
+}
+
+.feed {
+    max-width: 470px;
+    margin: 0 auto;
+}
+
+.publication-card {
+    width: 100%;
+    background-color: #000000;
+    margin-bottom: 20px;
+    border-bottom: 1px solid #262626;
+    padding-bottom: 10px;
+}
+
+.card-header {
+    padding: 10px;
+    display: flex;
+    align-items: center;
+}
+
+.profile-icon {
+    height: 32px;
+    width: 32px;
+    background-color: #e1306c;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+
+.username {
+    font-weight: bold;
+    font-size: 0.9rem;
+    flex-grow: 1;
+}
+
+.option-dots {
+    cursor: pointer;
+}
+
+.post-placeholder {
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    background-color: #1c1c1c;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2rem;
+    color: #555;
+    font-weight: bold;
+}
+
+.card-footer {
+    padding: 10px;
+}
+
+.action-icons {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+}
+
+.left-icons i, .right-icon i {
+    font-size: 1.5rem;
+    margin-right: 15px;
+    cursor: pointer;
+}
+
+.right-icon i {
+    margin-right: 0;
+}
+
+.left-icons i:hover, .right-icon i:hover {
+    color: #8E8E93;
+}
+
+.likes {
+    font-size: 0.9rem;
+    margin-bottom: 5px;
+}
+
+.caption {
+    font-size: 0.9rem;
+    margin-bottom: 5px;
+}
+
+.comments-link {
+    color: #8E8E93;
+    font-size: 0.9rem;
+    cursor: pointer;
+}
+
+.bottom-nav {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    height: 50px;
+    background-color: #000000;
+    border-top: 1px solid #262626;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    font-size: 1.4rem;
+}
+
+.profile-mini {
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    background-color: #dad7cd;
+}
+
+@media (min-width: 768px) {
+    .bottom-nav {
+        display: none;
+    }
+    
+    .publication-card {
+        border: 1px solid #262626;
+        border-radius: 8px;
+        margin-top: 20px;
+    }
+}
