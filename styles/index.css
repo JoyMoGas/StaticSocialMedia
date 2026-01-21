@@ -12,13 +12,12 @@ body {
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
 }
 
-/* Utility Class for JS */
 .hidden {
     display: none !important;
 }
 
 .liked {
-    color: #ed4956; /* Instagram Red */
+    color: #ed4956;
 }
 
 a {
@@ -26,9 +25,6 @@ a {
     color: inherit;
 }
 
-/* --- MOBILE DEFAULT STYLES --- */
-
-/* Mobile Top Nav */
 .navbar {
     position: fixed;
     top: 0;
@@ -53,7 +49,7 @@ a {
 .logo {
     font-weight: bold;
     font-size: 1.6rem;
-    font-family: 'Cursive', sans-serif; /* Fallback */
+    font-family: 'Cursive', sans-serif;
 }
 
 .nav-links {
@@ -70,7 +66,6 @@ a {
     font-size: 1.4rem;
 }
 
-/* Feed */
 .feed {
     width: 100%;
     max-width: 470px;
@@ -162,7 +157,6 @@ a {
     cursor: pointer;
 }
 
-/* Mobile Bottom Nav */
 .bottom-nav {
     position: fixed;
     bottom: 0;
@@ -184,16 +178,14 @@ a {
     background-color: #dad7cd;
 }
 
-/* Sidebars hidden on mobile */
 .desktop-sidebar, .right-sidebar {
     display: none;
 }
 
-/* --- MESSAGES SECTION --- */
 #messages-section {
     position: fixed;
-    top: 60px; /* Below navbar */
-    bottom: 50px; /* Above bottom nav */
+    top: 60px;
+    bottom: 50px;
     left: 0;
     width: 100%;
     background-color: #000;
@@ -207,7 +199,7 @@ a {
 }
 
 .conversations-list {
-    width: 100%; /* Full width on mobile when in list view */
+    width: 100%;
     border-right: 1px solid #262626;
     display: flex;
     flex-direction: column;
@@ -244,16 +236,15 @@ a {
 }
 
 .chat-area {
-    display: none; /* Hidden on mobile initially, JS would toggle */
+    display: none;
     flex-grow: 1;
     background-color: #000;
     flex-direction: column;
 }
 
-/* --- DESKTOP STYLES --- */
 @media (min-width: 768px) {
     body {
-        margin: 0; /* Reset margins */
+        margin: 0;
         background-color: #000;
     }
 
@@ -261,16 +252,13 @@ a {
         display: none !important;
     }
 
-    /* Grid Layout */
     .main-layout {
         display: grid;
-        grid-template-columns: 245px 1fr 320px; /* Sidebar | Content | Suggestions */
-        max-width: 1500px;
+        grid-template-columns: 245px 1fr 320px;
         margin: 0 auto;
         min-height: 100vh;
     }
 
-    /* Desktop Sidebar */
     .desktop-sidebar {
         display: flex;
         flex-direction: column;
@@ -312,14 +300,13 @@ a {
     .sidebar-links i {
         font-size: 1.5rem;
         margin-right: 15px;
-        width: 30px; /* Fixed width for alignment */
+        width: 30px;
     }
 
     .sidebar-links span {
-        font-weight: normal; /* Font weight can be adjusted */
+        font-weight: normal;
     }
 
-    /* Feed adjustments */
     .feed {
         margin-top: 40px;
     }
@@ -329,11 +316,10 @@ a {
         border-radius: 8px;
     }
 
-    /* Right Sidebar */
     .right-sidebar {
         display: block;
         padding: 40px 20px;
-        width: 300px; /* Explicit width */
+        width: 300px;
     }
 
     .user-profile, .suggestion-item {
@@ -372,10 +358,9 @@ a {
         font-size: 0.9rem;
     }
 
-    /* Messages Section Overlay/Page */
     #messages-section {
-        position: static; /* In flow for desktop if we want full page, but let's make it overlay or specialized */
-        grid-column: 2 / -1; /* Take up content area */
+        position: static;
+        grid-column: 2 / -1;
         top: 0;
         height: 100vh;
         z-index: 10;
@@ -396,7 +381,7 @@ a {
     }
 
     .chat-area {
-        display: flex; /* Always visible on desktop */
+        display: flex;
     }
 
     .chat-header {
