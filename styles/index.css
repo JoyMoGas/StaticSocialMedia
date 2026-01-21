@@ -12,11 +12,23 @@ body {
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
 }
 
+/* Utility Class for JS */
+.hidden {
+    display: none !important;
+}
+
+.liked {
+    color: #ed4956; /* Instagram Red */
+}
+
 a {
     text-decoration: none;
     color: inherit;
 }
 
+/* --- MOBILE DEFAULT STYLES --- */
+
+/* Mobile Top Nav */
 .navbar {
     position: fixed;
     top: 0;
@@ -41,7 +53,7 @@ a {
 .logo {
     font-weight: bold;
     font-size: 1.6rem;
-    font-family: 'Cursive', sans-serif;
+    font-family: 'Cursive', sans-serif; /* Fallback */
 }
 
 .nav-links {
@@ -58,7 +70,9 @@ a {
     font-size: 1.4rem;
 }
 
+/* Feed */
 .feed {
+    width: 100%;
     max-width: 470px;
     margin: 0 auto;
 }
@@ -83,6 +97,7 @@ a {
     background-color: #e1306c;
     border-radius: 50%;
     margin-right: 10px;
+    flex-shrink: 0;
 }
 
 .username {
@@ -147,6 +162,7 @@ a {
     cursor: pointer;
 }
 
+/* Mobile Bottom Nav */
 .bottom-nav {
     position: fixed;
     bottom: 0;
@@ -158,6 +174,7 @@ a {
     justify-content: space-around;
     align-items: center;
     font-size: 1.4rem;
+    z-index: 100;
 }
 
 .profile-mini {
@@ -167,14 +184,273 @@ a {
     background-color: #dad7cd;
 }
 
+/* Sidebars hidden on mobile */
+.desktop-sidebar, .right-sidebar {
+    display: none;
+}
+
+/* --- MESSAGES SECTION --- */
+#messages-section {
+    position: fixed;
+    top: 60px; /* Below navbar */
+    bottom: 50px; /* Above bottom nav */
+    left: 0;
+    width: 100%;
+    background-color: #000;
+    z-index: 50;
+}
+
+.messages-container {
+    display: flex;
+    height: 100%;
+    width: 100%;
+}
+
+.conversations-list {
+    width: 100%; /* Full width on mobile when in list view */
+    border-right: 1px solid #262626;
+    display: flex;
+    flex-direction: column;
+}
+
+.conv-header {
+    padding: 1rem;
+    border-bottom: 1px solid #262626;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-weight: bold;
+}
+
+.conversation {
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+}
+
+.conversation:hover, .conversation.active {
+    background-color: #121212;
+}
+
+.conv-info {
+    display: flex;
+    flex-direction: column;
+}
+
+.conv-info .preview {
+    color: #8e8e93;
+    font-size: 0.8rem;
+}
+
+.chat-area {
+    display: none; /* Hidden on mobile initially, JS would toggle */
+    flex-grow: 1;
+    background-color: #000;
+    flex-direction: column;
+}
+
+/* --- DESKTOP STYLES --- */
 @media (min-width: 768px) {
-    .bottom-nav {
-        display: none;
+    body {
+        margin: 0; /* Reset margins */
+        background-color: #000;
     }
-    
+
+    .mobile-only {
+        display: none !important;
+    }
+
+    /* Grid Layout */
+    .main-layout {
+        display: grid;
+        grid-template-columns: 245px 1fr 320px; /* Sidebar | Content | Suggestions */
+        max-width: 1500px;
+        margin: 0 auto;
+        min-height: 100vh;
+    }
+
+    /* Desktop Sidebar */
+    .desktop-sidebar {
+        display: flex;
+        flex-direction: column;
+        border-right: 1px solid #262626;
+        padding: 20px 10px;
+        position: sticky;
+        top: 0;
+        height: 100vh;
+    }
+
+    .desktop-sidebar .logo {
+        margin-bottom: 40px;
+        padding-left: 10px;
+        display: block;
+    }
+
+    .sidebar-links {
+        list-style: none;
+        padding: 0;
+    }
+
+    .sidebar-links li {
+        margin-bottom: 10px;
+    }
+
+    .sidebar-links a {
+        display: flex;
+        align-items: center;
+        padding: 12px;
+        border-radius: 8px;
+        transition: background-color 0.2s;
+        font-size: 1rem;
+    }
+
+    .sidebar-links a:hover {
+        background-color: #1a1a1a;
+    }
+
+    .sidebar-links i {
+        font-size: 1.5rem;
+        margin-right: 15px;
+        width: 30px; /* Fixed width for alignment */
+    }
+
+    .sidebar-links span {
+        font-weight: normal; /* Font weight can be adjusted */
+    }
+
+    /* Feed adjustments */
+    .feed {
+        margin-top: 40px;
+    }
+
     .publication-card {
         border: 1px solid #262626;
         border-radius: 8px;
-        margin-top: 20px;
+    }
+
+    /* Right Sidebar */
+    .right-sidebar {
+        display: block;
+        padding: 40px 20px;
+        width: 300px; /* Explicit width */
+    }
+
+    .user-profile, .suggestion-item {
+        display: flex;
+        align-items: center;
+        margin-bottom: 20px;
+        width: 100%;
+    }
+
+    .user-info {
+        flex-grow: 1;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .sub-text {
+        color: #8e8e93;
+        font-size: 0.8rem;
+    }
+
+    .action-btn {
+        background: none;
+        border: none;
+        color: #0095f6;
+        font-weight: bold;
+        cursor: pointer;
+        font-size: 0.85rem;
+    }
+
+    .suggestions-header {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 15px;
+        font-weight: bold;
+        color: #8e8e93;
+        font-size: 0.9rem;
+    }
+
+    /* Messages Section Overlay/Page */
+    #messages-section {
+        position: static; /* In flow for desktop if we want full page, but let's make it overlay or specialized */
+        grid-column: 2 / -1; /* Take up content area */
+        top: 0;
+        height: 100vh;
+        z-index: 10;
+        margin: 0;
+    }
+
+    .messages-container {
+        border: 1px solid #262626;
+        margin: 20px;
+        height: calc(100vh - 40px);
+        background-color: #000;
+        display: flex;
+    }
+
+    .conversations-list {
+        width: 350px;
+        border-right: 1px solid #262626;
+    }
+
+    .chat-area {
+        display: flex; /* Always visible on desktop */
+    }
+
+    .chat-header {
+        height: 60px;
+        border-bottom: 1px solid #262626;
+        display: flex;
+        align-items: center;
+        padding: 0 20px;
+    }
+
+    .chat-messages {
+        flex-grow: 1;
+        padding: 20px;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        overflow-y: auto;
+    }
+
+    .message {
+        padding: 10px 15px;
+        border-radius: 20px;
+        max-width: 70%;
+    }
+
+    .message.received {
+        background-color: #262626;
+        align-self: flex-start;
+    }
+
+    .message.sent {
+        background-color: #3797f0;
+        align-self: flex-end;
+    }
+
+    .chat-input-area {
+        height: 60px;
+        padding: 0 20px;
+        display: flex;
+        align-items: center;
+        gap: 15px;
+        border-top: 1px solid #262626;
+    }
+
+    .chat-input-area input {
+        flex-grow: 1;
+        background: none;
+        border: none;
+        color: white;
+        outline: none;
+    }
+
+    .chat-input-area i {
+        font-size: 1.5rem;
+        cursor: pointer;
     }
 }
